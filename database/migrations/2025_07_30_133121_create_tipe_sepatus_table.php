@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('tipe_sepatu');
             $table->integer('harga');
+            $table->text('deskripsi')->nullable();
             $table->timestamps();
         });
     }

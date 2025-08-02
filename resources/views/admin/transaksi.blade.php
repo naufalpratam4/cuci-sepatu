@@ -13,6 +13,12 @@
                             placeholder="Masukkan nama pelanggan" required="">
                     </div>
                     <div class="w-full">
+                        <label for="no_pelanggan" class="block mb-2 text-sm font-medium text-gray-900  ">Nomor HP</label>
+                        <input type="text" name="no_pelanggan" id="no_pelanggan"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5  "
+                            placeholder="Masukkan nama pelanggan" required="">
+                    </div>
+                    <div class="w-full">
                         <label for="tgl_masuk" class="block mb-2 text-sm font-medium text-gray-900  ">Tanggal masuk</label>
                         <input type="date" name="tgl_masuk" id="tgl_masuk"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5  "
@@ -37,12 +43,12 @@
                     </div>
                     <div class="mb-4">
                         <label for="tipe_sepatu_id" class="block mb-2 text-sm font-medium text-gray-900">
-                            Tipe Sepatu
+                            Tipe Layanan
                         </label>
                         <select id="tipe_sepatu_id" name="tipe_sepatu_id"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                             required>
-                            <option value="" disabled selected>-- Pilih tipe sepatu --</option>
+                            <option value="" disabled selected>-- Pilih layanan --</option>
                             @foreach ($tipeSepatu as $item)
                                 <option value="{{ $item->id }}">{{ $item->tipe_sepatu }}</option>
                             @endforeach
@@ -54,22 +60,16 @@
                             Rp</label>
                         <input type="number" name="diskon" id="diskon"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5  "
-                            placeholder="Rp. xxx" required="">
+                            placeholder="Rp. xxx"  >
                     </div>
                     <div>
                         <label for="jumlah" class="block mb-2 text-sm font-medium text-gray-900  ">Jumlah
                             Sepatu</label>
                         <input type="number" name="jumlah" id="jumlah"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5  "
-                            placeholder="Rp. xxx" required="">
+                            placeholder="Jml Sepatu" required="">
                     </div>
-                    <div>
-                        <label for="total_bayar" class="block mb-2 text-sm font-medium text-gray-900  ">Total uang yang harus dibayar
-                            Rp</label>
-                        <input type="number" name="total_bayar" id="total_bayar" disabled
-                            class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5  "
-                            placeholder="Rp. xxx" required="">
-                    </div>
+                    
 
                 </div>
                 <button type="submit"

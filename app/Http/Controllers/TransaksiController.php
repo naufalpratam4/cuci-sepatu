@@ -9,7 +9,8 @@ use Illuminate\Http\Request;
 
 class TransaksiController extends Controller
 {
-    public function viewDataTransaksi(){
+    public function viewDataTransaksi()
+    {
         $data = Transaksi::paginate(5);
         return view('admin.transaksi.dataTransaksi', compact('data'));
     }
@@ -45,6 +46,7 @@ class TransaksiController extends Controller
             'diskon' => $diskon,
             'jumlah' => $jumlah,
             'total_bayar' => $totalBayar,
+            'no_pelanggan' => $request->input('no_pelanggan')
         ]);
 
         $data->save();
@@ -56,5 +58,38 @@ class TransaksiController extends Controller
         $transaksi = Transaksi::with('tipeSepatu')->findOrFail($id);
 
         return view('admin.transaksi.invoice', ['transaksi' => $transaksi]);
+    }
+    public function detailTransaksi($id)
+    {
+        $data = Transaksi::find($id);
+        return view('admin.transaksi.detailTransaksi', compact('data'));
+    }
+    public function konfirmasiPesanan(Request $request, $id)
+    {
+        $data = Transaksi::find($id);
+        $data->update([
+            'is_acc' => $request->input('is_acc')
+        ]);
+        return redirect()->back()->with('success', 'Berhasil konfirmasi pesanan');
+    }
+
+    public function hapusTransaksi($id)
+    {
+        $data = Transaksi::findorfail($id);
+        $data->delete();
+        return redirect()->back()->with('success', 'Berhasil hapus');
+    }
+
+    public function searchTransaksi(Request $request)
+    {
+        $query = Transaksi::query();
+
+        if ($request->has('search')) {
+            $query->where('nota', 'like', '%' . $request->search . '%');
+        }
+
+        $data = $query->paginate(5); // atau sesuai jumlah
+
+        return view('admin.transaksi.dataTransaksi', compact('data'));
     }
 }
