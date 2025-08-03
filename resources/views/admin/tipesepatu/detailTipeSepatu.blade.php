@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Tipe Layanan</title>
 </head>
 <body>
-    tipe sepatu = {{$data->tipe_sepatu}} <br>
+    tipe layanan = {{$data->tipe_sepatu}} <br>
     harga = {{$data->harga}}
 </body>
 </html>

@@ -3,7 +3,7 @@
     <div class="mx-auto max-w-screen-xl px-4  ">
         <!-- Start coding here -->
         <div class="bg-white   relative shadow-md sm:rounded-lg overflow-hidden">
-            <h2 class="p-4 text-xl font-bold text-gray-900 ">Form tambah tipe sepatu</h2>
+            <h2 class="p-4 text-xl font-bold text-gray-900 ">Form tambah tipe layanan</h2>
             <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
                 <div class="w-full md:w-1/2">
                     <form class="flex items-center">

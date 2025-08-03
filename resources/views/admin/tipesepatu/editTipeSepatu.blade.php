@@ -2,7 +2,7 @@
 @section('sidebar')
 <section class="bg-white  rounded-lg">
         <div class="py-8 px-4 mx-auto ">
-            <h2 class="mb-4 text-xl font-bold text-gray-900 ">Form tambah tipe sepatu</h2>
+            <h2 class="mb-4 text-xl font-bold text-gray-900 ">Form tambah tipe layanan</h2>
             <form action="{{route('update.tipe.sepatu', $data->id)}}" method="POST">
                 @csrf
                 <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
