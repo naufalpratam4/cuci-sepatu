@@ -12,6 +12,9 @@ Route::get('/', function () {
     $data = TipeSepatu::all();
     return view('welcome', compact('data'));
 });
+Route::get('/testimoni', function(){
+    return view('galeriTestimoni');
+});
 Route::post('/', [LandingPageController::class, 'formPemesanan'])->name('form.pemesanan.user');
 
 Route::get('/login', function(){

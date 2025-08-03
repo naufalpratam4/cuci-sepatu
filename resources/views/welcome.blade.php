@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ushapp - Cuci Sepatu Profesional</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="{{ asset('img/logo_ushapp.png') }}" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
@@ -110,7 +111,7 @@
                     Layanan</a>
             </div>
             <div class="lg:w-1/2 animate-fade-in">
-                <img src="https://cdn-icons-png.flaticon.com/512/1042/1042391.png"
+                <img src="img\logo_ushapp.png"
                     class="w-full max-w-md mx-auto drop-shadow-2xl transform hover:scale-105 transition duration-500"
                     alt="Ilustrasi Sepatu">
             </div>
@@ -136,7 +137,7 @@
                     <h4 class="text-xl font-semibold mb-2">Deep Clean</h4>
                     <p class="text-gray-700 text-sm mb-4">Membersihkan seluruh bagian luar dan dalam hingga ke detail
                         terkecil.</p>
-                    <p class="font-bold text-blue-700">Rp 45.000</p>
+                    <p class="font-bold text-blue-700">Rp 35.000</p>
                 </div>
                 <div class="glass p-8 rounded-2xl shadow-xl hover:scale-105 transition duration-300">
                     <img src="https://cdn-icons-png.flaticon.com/512/7766/7766991.png" class="w-16 h-16 mx-auto mb-4"
@@ -144,32 +145,37 @@
                     <h4 class="text-xl font-semibold mb-2">Premium Treatment</h4>
                     <p class="text-gray-700 text-sm mb-4">Perawatan khusus untuk bahan premium seperti suede dan kulit.
                     </p>
-                    <p class="font-bold text-blue-700">Rp 75.000</p>
+                    <p class="font-bold text-blue-700">Rp 50.000</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Testimoni -->
-    <section id="testimoni" class="py-28 bg-blue-50">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <h3 class="text-4xl font-bold text-gray-800 mb-14 animate-fade-in-up">Apa Kata Mereka?</h3>
-            <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300">
-                    <img src="https://i.pravatar.cc/80?img=3" class="w-14 h-14 mx-auto rounded-full mb-4" />
-                    <p class="italic text-gray-600">“Hasil cucinya memuaskan banget, sepatu jadi kinclong lagi!”</p>
-                    <p class="mt-4 font-semibold text-blue-700">Rian - Mahasiswa</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300">
-                    <img src="https://i.pravatar.cc/80?img=5" class="w-14 h-14 mx-auto rounded-full mb-4" />
-                    <p class="italic text-gray-600">“Cocok buat sepatu kerja saya, cepat dan aman.”</p>
-                    <p class="mt-4 font-semibold text-blue-700">Dita - Karyawan</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300">
-                    <img src="https://i.pravatar.cc/80?img=7" class="w-14 h-14 mx-auto rounded-full mb-4" />
-                    <p class="italic text-gray-600">“Sudah langganan! Nggak pernah kecewa.”</p>
-                    <p class="mt-4 font-semibold text-blue-700">Aldi - Sneakerhead</p>
-                </div>
+    <section id="testimoni" class="flex justify-center py-28 bg-blue-50">
+        <div class="w-full max-w-7xl px-4">
+            <h2 class="text-4xl font-extrabold text-center text-gray-800 mb-12 tracking-tight">
+                Galeri Testimoni Konsumen
+            </h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                @foreach (['10.jpeg', '2.jpeg', '12.jpeg', '21.jpeg'] as $img)
+                    <div class="group relative overflow-hidden rounded-xl shadow-lg bg-gray-800">
+                        <img src="{{ asset('img/testimoni/' . $img) }}" alt="Testimoni"
+                            class="w-full h-72 object-cover transform group-hover:scale-110 transition duration-500 ease-in-out">
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-30 opacity-0 group-hover:opacity-100 transition duration-300">
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+
+            <!-- Tombol "Lihat Semuanya" -->
+            <div class="mt-12 flex justify-center">
+                <a href="/testimoni"
+                    class="inline-block px-6 py-3 bg-white text-gray-900 font-semibold rounded-full shadow-md hover:text-blue-500 hover:underline decoration-2 transition duration-300">
+                    Lihat Semua Testimoni
+                </a>
             </div>
         </div>
     </section>
@@ -329,8 +335,8 @@
     <!-- Footer -->
     <footer id="kontak" class="bg-gray-900 text-white py-10">
         <div class="max-w-7xl mx-auto px-6 text-center">
-            <p class="mb-2">WhatsApp: 0812-3456-7890 | Instagram: <a href="https://instagram.com/ushapp.id"
-                    class="text-blue-400 hover:underline">@ushapp.id</a></p>
+            <p class="mb-2">Instagram: <a href="https://www.instagram.com/_ushapp/"
+                    class="text-blue-400 hover:underline">@_ushapp</a></p>
             <p class="text-sm text-gray-400">&copy; 2025 Ushapp. All rights reserved.</p>
         </div>
     </footer>

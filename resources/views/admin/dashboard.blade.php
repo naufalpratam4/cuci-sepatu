@@ -30,8 +30,9 @@
                 <div class="">
                     <form action="{{ route('add.transaksi') }}" method="POST">
                         @csrf
+                        <h3 class="text-lg font-semibold text-gray-600 ">Transaksi Cepat</h3>
                         <div class="grid gap-4 grid-cols-2 sm:gap-6">
-                            <div class="w-full">
+                            <div class="md:w-55">
                                 <label for="nama_pelanggan"
                                     class="block mb-2 text-sm font-medium text-gray-900  ">Pelanggan</label>
                                 <input type="text" name="nama_pelanggan" id="nama_pelanggan"
@@ -108,7 +109,7 @@
                         </button>
                     </form>
                 </div>
-                
+
             </div>
 
             <div class="bg-white p-6 rounded-lg shadow">

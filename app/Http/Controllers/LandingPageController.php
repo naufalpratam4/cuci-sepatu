@@ -43,11 +43,31 @@ class LandingPageController extends Controller
             'alamat'         => $alamat,
             'latitude'       => $latitude,
             'longitude'      => $longitude,
-            'tgl_masuk'  => now(),
+            'tgl_masuk'      => now(),
         ]);
-
         $transaksi->save();
 
-        return redirect()->back()->with('success', 'Berhasil mengisi form pemesanan.');
+        // Format pesan WhatsApp
+        $pesan = "*Form Pemesanan Cuci Sepatu*\n";
+        $pesan .= "Nama: $namaPelanggan\n";
+        $pesan .= "No. WA: $noPelanggan\n";
+        $pesan .= "Tipe Layanan: {$tipeSepatu->tipe_sepatu} (Rp $harga)\n";
+        $pesan .= "Jumlah Sepatu: $jumlah\n";
+        if ($diskon > 0) {
+            $pesan .= "Diskon: Rp $diskon\n";
+        }
+        $pesan .= "Total Bayar: Rp $totalBayar\n";
+        $pesan .= "Alamat: $alamat\n";
+        if ($latitude && $longitude) {
+            $pesan .= "Lokasi: https://www.google.com/maps?q=$latitude,$longitude\n";
+        }
+        $pesan .= "Nota: $nomorNota";
+
+        // Encode pesan dan redirect ke WhatsApp
+        $pesanEncoded = urlencode($pesan);
+        $noAdmin = '6285799857403'; // GANTI dengan nomor admin
+        $waUrl = "https://wa.me/$noAdmin?text=$pesanEncoded";
+
+        return redirect($waUrl);
     }
 }
